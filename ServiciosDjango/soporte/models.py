@@ -10,3 +10,13 @@ class Servicios(models.Model):
 
     def __str__(self):
         return self.descripcion
+
+class Clientes(models.Model):
+    NombreyApellido= models.CharField(max_length=30)
+    DNI= models.CharField(max_length=8)
+    direccion= models.CharField(max_length=20)
+
+class Tecnicos(models.Model):
+    NombreyApellido= models.CharField(max_length=30)
+    DNI= models.CharField(max_length=8)
+    direccion= models.CharField(max_length=20)
