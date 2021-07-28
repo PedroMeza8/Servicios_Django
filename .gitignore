@@ -1,0 +1,5 @@
+entornov
+ServiciosDjango/db.sqlite3
+ServiciosDjango/ServiciosDjango/__pycache__/
+ServiciosDjango/soporte/__pycache__/
+ServiciosDjango/soporte/migrations/__pycache__/
