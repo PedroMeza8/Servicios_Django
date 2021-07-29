@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Servicios
+from .models import Servicios, Movimientos
 
 # Create your views here.
 
@@ -11,6 +11,12 @@ def servicios(request):
     print(listaServicios)
     
     return render(request,'servicios.html', context={'servicios':listaServicios}) 
+
+def movimientos(request):
+    listaMovimientos= Movimientos.objects.all()
+    print(listaMovimientos)
+    
+    return render(request,'movimientos.html', context={'movimientos':listaMovimientos}) 
 
 def crear(request):
     return render(request,'crear.html')
