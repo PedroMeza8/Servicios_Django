@@ -5,6 +5,12 @@
 {% include 'nav.html' %}
 <div class="container mt-3">
     <h1>Movimientos</h1>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <input type="text" name="dni">
+      <input type="submit" value="Buscar">
+    </form>
+    
     <table class="table">
       <thead>
         <tr>
