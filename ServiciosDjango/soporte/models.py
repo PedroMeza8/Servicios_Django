@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Servicios(models.Model):
-    descripcion = models.CharField(max_length=100, null= True)
+    descripcion = models.CharField(max_length=30, null= True)
     precio = models.FloatField()
 
     def __str__(self):

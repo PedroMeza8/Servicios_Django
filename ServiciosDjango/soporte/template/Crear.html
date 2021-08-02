@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
-{% include 'nav.html' %}
+{% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
 <div class="container mt-3">
-    <h1>Crear Servicios</h1>
-    {% include 'footer.html' %}
+  <h1>Crear Servicios</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>{{servicioform.descripcion.label}}</p>
+    <p>{{servicioform.descripcion}}</p>
+    <p>{{servicioform.precio.label}}</p>
+    <p>{{servicioform.precio}}</p>
+    <input type="submit" value="Guardar" />
+  </form>
+  <div>{% for m in messages %} {{m}}
+       {% endfor %} 
   </div>
+  {% include 'footer.html' %}
+</div>
 {% endblock %}

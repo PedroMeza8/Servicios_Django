@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Clientes, Servicios, Movimientos
+from django.contrib import messages
+from .forms import ServicioForm
+
 
 # Create your views here.
 
@@ -27,7 +30,29 @@ def movimientos(request):
     return render(request,'movimientos.html', context={'movimientos':listaMovimientos}) 
 
 def crear(request):
-    return render(request,'crear.html')
+    formservicio = ServicioForm()
+    if request.method == 'POST':
+        form = ServicioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/servicios')
+        else:
+            messages.warning(request, 'Datos invalidos. Vuelva a cargar')
+            return redirect('/crear')    
 
-def editar(request):
-    return render(request,'editar.html')           
+    
+    return render(request,'crear.html', {'servicioform': formservicio})
+
+def editar(request, id):
+    serv = Servicios.objects.get(id=id)
+    formservicio = ServicioForm(instance=serv)
+    if request.method == 'POST':
+        form = ServicioForm(request.POST, instance=serv)
+        if form.is_valid():
+            form.save()
+            return redirect('/servicios')
+        else:
+            messages.warning(request, 'Datos invalidos. Vuelva a cargar')
+            return redirect('/crear')   
+
+    return render(request,'editar.html', {'formservicio':formservicio})           

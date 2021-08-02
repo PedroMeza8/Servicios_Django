@@ -5,6 +5,15 @@
 {% include 'nav.html' %}
 <div class="container mt-3">
     <h1> Editar Servicios</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <p>{{formservicio.descripcion.label}}</p>
+      <p>{{formservicio.descripcion}}</p>
+      <p>{{formservicio.precio.label}}</p>
+      <p>{{formservicio.precio}}</p>
+      <input type="submit" value="Guardar" />
+    </form>
+    
     {% include 'footer.html' %}
   </div>
 {% endblock %}

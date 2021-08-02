@@ -5,9 +5,10 @@
 {% include 'nav.html' %}
 <div class="container mt-3">
     <h1>Servicios</h1>
+    <a href="/crear">Nuevo Servicio</a>
     {% for s in servicios %}
         
-        <ul><li>{{s}}</li></ul>
+        <ul><li>{{s}} <a href="{% url 'editar' s.id %}">Editar</a></li></ul>
     {% endfor %}
     {% include 'footer.html' %}
   </div>
