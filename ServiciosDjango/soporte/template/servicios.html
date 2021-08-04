@@ -1,15 +1,33 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
-{% include 'nav.html' %}
+{% extends 'base.html' %} {% block content %} {% include 'nav.html' %} 
 <div class="container mt-3">
-    <h1>Servicios</h1>
-    <a href="/crear">Nuevo Servicio</a>
-    {% for s in servicios %}
-        
-        <ul><li>{{s}} <a href="{% url 'editar' s.id %}">Editar</a></li></ul>
-    {% endfor %}
-    {% include 'footer.html' %}
-  </div>
+  <h1>Servicios</h1>
+  {% if request.user.is_authenticated %}
+  <a class="btn btn-success mb-5" href="/crear">Nuevo Servicio</a>
+  {% endif %} {% for s in servicios %}
+
+  <ul>
+    <li>
+      {{s}} {% if request.user.is_authenticated %}
+      <div class="d-flex justify-content-end">
+        <a type="button" class="btn btn-warning" href="{% url 'editar' s.id %}"
+          >Editar</a
+        >
+        <a
+          href="/eliminar/{{s.id}}"
+          class="delete btn btn-danger" onclick=" return confirm('Esta seguro que desea borrar el servicio?')"
+         
+          >eliminar</a
+        >
+        <!-- <a
+        href="/eliminar/{{s.id}}"
+        class="delete btn btn-danger" 
+       
+        >Delete</a
+      > -->
+      </div>
+      {% endif %}
+    </li>
+  </ul>
+  {% endfor %} {% include 'footer.html' %}
+</div>
 {% endblock %}

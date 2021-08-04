@@ -12,6 +12,7 @@ def home(request):
 def servicios(request):
     listaServicios= Servicios.objects.all()
     print(listaServicios)
+    print(request.user)
     
     return render(request,'servicios.html', context={'servicios':listaServicios}) 
 
@@ -55,4 +56,9 @@ def editar(request, id):
             messages.warning(request, 'Datos invalidos. Vuelva a cargar')
             return redirect('/crear')   
 
-    return render(request,'editar.html', {'formservicio':formservicio})           
+    return render(request,'editar.html', {'formservicio':formservicio}) 
+
+def eliminar(request, id):
+    serv = Servicios.objects.get(id=id)
+    serv.delete() 
+    return redirect ('/servicios') 

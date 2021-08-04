@@ -26,23 +26,24 @@
             <a class="nav-link" href="/servicios">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="iniciar" href="/login">Iniciar Sesión</a>
+            <a class="nav-link" id="iniciar" href="/admin">Iniciar Sesión</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" id="registro" href="/register">Registrarse</a>
-          </li>
+          </li> -->
         </ul>
 
         <div class="d-flex" id="cerrar">
-          <span id="nombre" style="color: aliceblue" class="m-2"></span>
+          <span id="nombre" style="color: aliceblue" class="m-2">{{request.user}}</span>
 
-          <button
+          <a
             class="btn btn-outline-success"
             id="finalizar"
             type="submit"
+            href="/admin/logout/"
           >
             Cerrar
-          </button>
+          </a>
         </div>
       </div>
     </div>
