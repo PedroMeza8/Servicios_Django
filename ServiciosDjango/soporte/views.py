@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Clientes, Servicios, Movimientos
+from .models import Clientes, Servicios, Movimientos, interesados
 from django.contrib import messages
 from .forms import ServicioForm
 
@@ -62,3 +62,11 @@ def eliminar(request, id):
     serv = Servicios.objects.get(id=id)
     serv.delete() 
     return redirect ('/servicios') 
+
+def inter(request):
+    mail= request.POST.get('form1')
+    interesados.objects.create(mail=mail)
+   
+
+    return redirect('/')
+

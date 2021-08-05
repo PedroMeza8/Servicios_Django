@@ -26,4 +26,10 @@ class Movimientos(models.Model):
     cliente= models.ForeignKey(Clientes, on_delete=models.CASCADE)
     servicio= models.ForeignKey(Servicios, on_delete=models.CASCADE)
     tecnico= models.ForeignKey(Tecnicos, on_delete=models.CASCADE)
-    estado= models.CharField(max_length=20, choices=lista, null=True)     
+    estado= models.CharField(max_length=20, choices=lista, null=True) 
+
+class interesados(models.Model):
+    mail= models.EmailField(max_length=30)
+    fecha= models.DateTimeField(auto_now_add=True, null=False)      
+
+ 

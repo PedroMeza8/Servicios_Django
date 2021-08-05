@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
-<div class="container mt-3">
+{% extends 'base.html' %} {% block title %} Crear Servicios {% endblock %} {% block content %} {% include 'nav.html' %}
+<div class="container mt-3 container1">
   <h1>Crear Servicios</h1>
   <form action="" method="POST">
     {% csrf_token %}
@@ -12,6 +12,6 @@
   <div>{% for m in messages %} {{m}}
        {% endfor %} 
   </div>
-  {% include 'footer.html' %}
 </div>
+{% include 'footer.html' %}
 {% endblock %}

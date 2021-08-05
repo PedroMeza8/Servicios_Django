@@ -1,11 +1,61 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="my-3" style="background-color: aqua">
-        Desarrollado por Meza y Gomez S.A.
-      </div>
-    </div>
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-2 pb-0">
+    <!-- Section: Form -->
+    <section class="">
+      <form method="POST" action="/interesados/">
+        {% csrf_token %}
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Suscríbase a nuestro boletín</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              
+              <input type="email" id="form5Example2" name="form1" class="form-control" />
+              <label class="form-label" for="form5Example2"
+                >Dirección de correo electrónico</label
+              >
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Suscribir
+            </button>
+          </div>
+          
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
   </div>
-</div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2021 Copyright:
+    <a
+      class="text-white"
+      href="https://www.linkedin.com/in/pedro-antonio-meza-12610239/"
+      target="_blank"
+      >Lic. Pedro Antonio Meza</a
+    >
+  </div>
+  <!-- Copyright -->
+</footer>
 {% endblock %}
