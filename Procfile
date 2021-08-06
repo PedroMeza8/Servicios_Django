@@ -1,1 +1,1 @@
-web: gunicorn ServiciosDjango.wsgi --log-file - --log-level debug
+web: gunicorn ServiciosDjango.wsgi:application --log-file -
